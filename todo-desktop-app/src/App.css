@@ -136,7 +136,6 @@ button {
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
   margin: 10vh;
   background-color: white;
 }
@@ -199,6 +198,7 @@ button {
   display: flex;
   flex-direction: row;
   align-items: left;
+  justify-content: space-between;
   padding: 10px;
   margin-bottom: 5px;
 }
@@ -207,7 +207,7 @@ button {
   font-size: 13px;
   color:#0f0f0f;
   font-weight: 500;
-  flex-grow: 4;
+  /* flex-grow: 3; */
   padding-left: 10px;
 }
 
@@ -236,3 +236,4 @@ input[type="checkbox"]:checked {
   background-color: #dfdfdf;
   margin: 10px 0;
 }
+

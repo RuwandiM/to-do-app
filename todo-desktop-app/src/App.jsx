@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { invoke } from "@tauri-apps/api/core";
 import "./App.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
@@ -6,6 +6,34 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [isCompleted, setIsCompleted] = useState(false);
+  const [title, setTitle] = useState("");
+  const [todoList, setTodoLIst] = useState([]);
+
+  function fetchTodoList() {
+    invoke("get_todos")
+      .then((response) => {
+        console.log("Response from Rust:", response);
+        setTodoLIst(response);
+      })
+      .catch((error) => {
+        console.error("Error fetching data:", error);
+      });
+  }
+
+  function addTodo() {
+    invoke("add_todo", {title})
+      .then(() => {
+        setTitle("");
+        fetchTodoList();
+      })
+      .catch((error) => {
+        console.error("Error adding todo:", error);
+      });
+  }
+
+  useEffect(() => {
+    fetchTodoList();
+  })
 
   return (
     <main className="container">
@@ -16,21 +44,24 @@ function App() {
         <input
           type="text"
           placeholder="Add your task here"
-          onChange={(e) => setName(e.target.value)}
+          onChange={(e) => setTitle(e.target.value)}
           className="inputField"
+          value={title}
         />
-        <button className="addButton">Add new</button>
+        <button className="addButton" onClick={() => addTodo()}>Add new</button>
       </div>
       <div className="taskList">
-        {[...Array(5)].map((_, i) => (
-          <div key={i}>
+        {todoList.map((todo) => (
+          <div key={todo.id}>
             <div className="taskItem">
-              <input 
-                type="checkbox" 
-                className="taskCheckbox" 
-                checked={isCompleted}
-              />
-              <span className={`tasktext ${isCompleted ? "completed" : ""}`}>This is {i + 1} task I need to be completed.</span>
+              <div>
+                <input 
+                  type="checkbox" 
+                  className="taskCheckbox" 
+                  checked={isCompleted}
+                />
+                <span className={`tasktext ${isCompleted ? "completed" : ""}`}>{todo.title}</span>
+              </div>
               <button className="deleteButton">
                 <FontAwesomeIcon icon={faTrash} />
               </button>
