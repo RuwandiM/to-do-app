@@ -1,4 +1,4 @@
-.logo.vite:hover {
+/* .logo.vite:hover {
   filter: drop-shadow(0 0 2em #747bff);
 }
 
@@ -113,4 +113,126 @@ button {
   button:active {
     background-color: #0f0f0f69;
   }
+} */
+
+
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 24px;
+
+  color: #0f0f0f;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+.container {
+  margin: 0;
+  padding: 5vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: left;
+  box-shadow: rgba(17, 17, 26, 0.05) 0px 4px 16px, rgba(17, 17, 26, 0.05) 0px 8px 32px;
+  margin: 10vh;
+  background-color: white;
+}
+
+/* input container */
+.inputContainer{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;  
+}
+
+.inputField {
+  /* width: 88%; */
+  padding: 0.6em 1.2em;
+  font-size: 13px;
+  font-weight: 500;
+  outline: none;
+  border-radius: 5px;
+  border-width: 1px;
+}
+
+@media (min-width: 1024px) {
+  .inputField {
+    width: 88%;
+  }
+}
+
+@media (min-width: 768px) {
+  .inputField {
+    width: 80%;
+  }
+}
+
+.addButton{
+  padding: 0.6em 1.2em;
+  font-size: 13px;
+  font-weight: 500;
+  border-radius: 5px;
+  background-color: #FF0B55;
+  color: #FFDEDE;
+  border: none;
+}
+
+.addButton:hover{
+  background-color: #CF0F47;
+  color: #FFDEDE;
+  cursor: pointer;
+}
+
+/* to do list */
+.taskList {
+  display: flex;
+  flex-direction: column;
+  margin-top: 20px;
+  padding: 10px;
+}
+
+.taskItem {
+  display: flex;
+  flex-direction: row;
+  align-items: left;
+  padding: 10px;
+  margin-bottom: 5px;
+}
+
+.tasktext {
+  font-size: 13px;
+  color:#0f0f0f;
+  font-weight: 500;
+  flex-grow: 4;
+  padding-left: 10px;
+}
+
+.tasktext.completed {
+  text-decoration: line-through;
+  color: rgb(197, 194, 194);
+}
+
+.deleteButton {
+  background-color: white;
+  border: none;
+  cursor: pointer;
+}
+
+input[type="checkbox"] {
+  cursor: pointer;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #FF0B55;
+}
+
+.customhr {
+  border: none;
+  height: 1px;
+  background-color: #dfdfdf;
+  margin: 10px 0;
 }
