@@ -29,3 +29,9 @@ pub fn save_todos(todos: &Vec<Todo>) {
     let data = serde_json::to_string_pretty(todos).expect("Failed to serialize data");
     file.write_all(data.as_bytes()).expect("Failed to write data");
 }
+
+pub fn delete_todo(id: u32) {
+    let mut todos = load_todos();
+    todos.retain(|todo| todo.id != id);
+    save_todos(&todos)
+}

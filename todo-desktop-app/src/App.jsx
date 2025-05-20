@@ -31,6 +31,16 @@ function App() {
       });
   }
 
+  function deleteTodo(id) {
+    invoke("delete_todo", {id})
+      .then(() => {
+        fetchTodoList();
+      })
+      .catch((error) => {
+        console.error("Error delete todo :", error);
+      })
+  }
+
   useEffect(() => {
     fetchTodoList();
   })
@@ -62,7 +72,7 @@ function App() {
                 />
                 <span className={`tasktext ${isCompleted ? "completed" : ""}`}>{todo.title}</span>
               </div>
-              <button className="deleteButton">
+              <button className="deleteButton" onClick = {() => deleteTodo(todo.id)}>
                 <FontAwesomeIcon icon={faTrash} />
               </button>
             </div>
