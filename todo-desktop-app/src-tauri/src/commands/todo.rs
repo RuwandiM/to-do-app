@@ -1,5 +1,5 @@
 use crate::models::todo::Todo;
-use crate::services::todo::{load_todos, save_todos, delete_todo as delete_todo_service};
+use crate::services::todo::{load_todos, save_todos, delete_todo as delete_todo_service, change_todo_status};
 use chrono;
 use tauri::command;
 
@@ -25,4 +25,9 @@ pub fn add_todo(title: String) {
 #[command]
 pub fn delete_todo(id: u32) {
     delete_todo_service(id);
+}
+
+#[command]
+pub fn toggle_todo(id : u32) {
+    change_todo_status(id);
 }

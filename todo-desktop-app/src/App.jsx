@@ -5,7 +5,6 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
-  const [isCompleted, setIsCompleted] = useState(false);
   const [title, setTitle] = useState("");
   const [todoList, setTodoLIst] = useState([]);
 
@@ -41,6 +40,16 @@ function App() {
       })
   }
 
+  function toggleTodo(id) {
+    invoke("toggle_todo", {id})
+      .then(() => {
+        fetchTodoList();
+      })
+      .catch((error) => {
+        console.log("Error toggling todo:", error); 
+      })
+  }
+
   useEffect(() => {
     fetchTodoList();
   })
@@ -68,9 +77,10 @@ function App() {
                 <input 
                   type="checkbox" 
                   className="taskCheckbox" 
-                  checked={isCompleted}
+                  checked={todo.completed}
+                  onChange={() => toggleTodo(todo.id)}
                 />
-                <span className={`tasktext ${isCompleted ? "completed" : ""}`}>{todo.title}</span>
+                <span className={`tasktext ${todo.completed ? "completed" : ""}`}>{todo.title}</span>
               </div>
               <button className="deleteButton" onClick = {() => deleteTodo(todo.id)}>
                 <FontAwesomeIcon icon={faTrash} />

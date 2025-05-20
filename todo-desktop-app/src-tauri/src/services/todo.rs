@@ -35,3 +35,10 @@ pub fn delete_todo(id: u32) {
     todos.retain(|todo| todo.id != id);
     save_todos(&todos)
 }
+
+pub fn change_todo_status(id: u32) {
+    let mut todos = load_todos();
+    let todo = todos.iter_mut().find(|todo| todo.id == id);
+    todo.map(|t| t.completed = !t.completed);
+    save_todos(&todos);
+}
