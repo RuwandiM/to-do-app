@@ -140,6 +140,13 @@ button {
   background-color: white;
 }
 
+.title{
+  font-size: 18px;
+  font-weight: bold;
+  color: #0f0f0f;
+  margin-bottom: 0px;
+}
+
 /* input container */
 .inputContainer{
   display: flex;
@@ -149,7 +156,6 @@ button {
 }
 
 .inputField {
-  /* width: 88%; */
   padding: 0.6em 1.2em;
   font-size: 13px;
   font-weight: 500;
@@ -207,7 +213,6 @@ button {
   font-size: 13px;
   color:#0f0f0f;
   font-weight: 500;
-  /* flex-grow: 3; */
   padding-left: 10px;
 }
 
@@ -236,4 +241,56 @@ input[type="checkbox"]:checked {
   background-color: #dfdfdf;
   margin: 10px 0;
 }
+
+/* to do header */
+.todoHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.todoCounts {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 20px;
+  gap: 10px;
+  font-size: 10px;
+  font-weight: 600;
+  margin-bottom: 20px;
+}
+
+.completedTaskCount {
+  background-color: rgb(241, 247, 249);
+  padding: 2px 5px;
+  border-radius: 20px;
+  border: 1px solid rgb(1, 33, 40);
+  color: rgb(1, 33, 40); 
+}
+
+.remainingTaskCount {
+  background-color: rgb(255, 251, 238);
+  padding: 2px 5px;
+  border-radius: 20px;
+  border: 1px solid rgb(243, 179, 3);
+  color: rgb(243, 179, 3);
+}
+
+.filterDropdown {
+  padding: 0.6em 1.2em;
+  font-size: 11px;
+  font-weight: 600;
+  border-radius: 5px;
+  background-color: #f1f0f0;
+  color: #1f1e1e;
+  border: none;
+}
+
+select {
+  font-weight: 600;
+  cursor: pointer;
+}
+
+
 

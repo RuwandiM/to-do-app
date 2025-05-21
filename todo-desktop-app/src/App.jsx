@@ -6,13 +6,21 @@ import { faTrash } from "@fortawesome/free-solid-svg-icons";
 
 function App() {
   const [title, setTitle] = useState("");
-  const [todoList, setTodoLIst] = useState([]);
+  const [todoList, setTodoList] = useState([]);
+  const [filterState, setFilterState] = useState("all");
+
+  console.log("filterState", filterState);
 
   function fetchTodoList() {
     invoke("get_todos")
       .then((response) => {
         console.log("Response from Rust:", response);
-        setTodoLIst(response);
+        if (filterState === "completed") {
+          response = response.filter((todo) => todo.completed);
+        } else if (filterState === "remaining") {
+          response = response.filter((todo) => !todo.completed);
+        } 
+        setTodoList(response);
       })
       .catch((error) => {
         console.error("Error fetching data:", error);
@@ -52,12 +60,29 @@ function App() {
 
   useEffect(() => {
     fetchTodoList();
-  })
+  }, [filterState]);
+
+  let completed_todo_count = todoList.filter((todo) => todo.completed).length;
+  let incolmplete_todo_count = todoList.length - completed_todo_count;
 
   return (
     <main className="container">
       <div>
-        <h3>To-Do List 🗓️</h3>
+        <p className="title">To-Do List 🗓️</p>
+        <div className="todoHeader">
+          <div className="todoCounts">
+            <div className="completedTaskCount">Completed Tasks: {completed_todo_count}</div>
+            <div className="remainingTaskCount">Remaining Tasks: {incolmplete_todo_count}</div>
+          </div>
+          <select
+            className="filterDropdown"
+            onChange={(e) => setFilterState(e.target.value)}
+          >
+            <option value="all" className="filterOption">All</option>
+            <option value="completed" className="filterOption">Completed</option>
+            <option value="remaining" className="filterOption">Remaining</option>
+          </select>
+        </div>
       </div>
       <div className="inputContainer">
         <input
