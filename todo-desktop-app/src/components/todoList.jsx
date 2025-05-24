@@ -102,6 +102,7 @@ function TodoList() {
                   className="taskCheckbox" 
                   checked={todo.completed}
                   onChange={() => toggleTodo(todo.id)}
+                  required
                 />
                 <span className={`tasktext ${todo.completed ? "completed" : ""}`}>{todo.title}</span>
               </div>

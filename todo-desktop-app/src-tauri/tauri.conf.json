@@ -12,9 +12,12 @@
   "app": {
     "windows": [
       {
-        "title": "todo-desktop-app",
-        "width": 800,
-        "height": 600
+        "title": "my-to-do",
+        "width": 500,
+        "height": 600,
+        "resizable": true,
+        "fullscreen": false,
+        "decorations": false
       }
     ],
     "security": {

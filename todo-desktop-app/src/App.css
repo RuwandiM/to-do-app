@@ -131,12 +131,12 @@ button {
 
 .container {
   margin: 0;
-  padding: 5vh;
+  padding: 1vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: left;
-  margin: 10vh;
+  margin: 5vh;
   background-color: white;
 }
 
@@ -173,6 +173,12 @@ button {
 @media (min-width: 768px) {
   .inputField {
     width: 80%;
+  }
+}
+
+@media (max-width: 768px) {
+  .inputField {
+    width: 70%;
   }
 }
 
@@ -218,7 +224,7 @@ button {
 
 .tasktext.completed {
   text-decoration: line-through;
-  color: rgb(197, 194, 194);
+  color: #d6c7cb
 }
 
 .deleteButton {
@@ -270,11 +276,11 @@ input[type="checkbox"]:checked {
 }
 
 .remainingTaskCount {
-  background-color: rgb(255, 251, 238);
+  background-color: rgb(249, 255, 255);
   padding: 2px 5px;
   border-radius: 20px;
-  border: 1px solid rgb(243, 179, 3);
-  color: rgb(243, 179, 3);
+  border: 1px solid rgb(1, 64, 62);
+  color: rgb(0, 18, 17);
 }
 
 .filterDropdown {
@@ -282,7 +288,7 @@ input[type="checkbox"]:checked {
   font-size: 11px;
   font-weight: 600;
   border-radius: 5px;
-  background-color: #f1f0f0;
+  background-color: #f7eff1;
   color: #1f1e1e;
   border: none;
 }
@@ -291,6 +297,39 @@ select {
   font-weight: 600;
   cursor: pointer;
 }
+
+/* title bar */
+.titlebar {
+  background-color: #f7eff1;
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 32px;
+  padding: 0 10px;
+  -webkit-app-region: drag;
+}
+
+.window-buttons button {
+  margin-left: 5px;
+  background: transparent;
+  /* color: white; */
+  border: none;
+  cursor: pointer;
+  -webkit-app-region: no-drag;
+}
+
+.logo {
+  width: 90px;
+  height: 30px;
+}
+
+.titlebarIcon {
+  width: 10px;
+  height: 10px;
+  color: rgb(70, 68, 68);
+}
+
 
 
 
