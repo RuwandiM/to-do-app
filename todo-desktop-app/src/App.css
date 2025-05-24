@@ -187,14 +187,14 @@ button {
   font-size: 13px;
   font-weight: 500;
   border-radius: 5px;
-  background-color: #FF0B55;
-  color: #FFDEDE;
+  background-color: #096B68;
+  color: #E7F2E4;
   border: none;
 }
 
 .addButton:hover{
-  background-color: #CF0F47;
-  color: #FFDEDE;
+  background-color: #06202B;
+  color: #E7F2E4;
   cursor: pointer;
 }
 
@@ -224,7 +224,7 @@ button {
 
 .tasktext.completed {
   text-decoration: line-through;
-  color: #d6c7cb
+  color: #c2cabf
 }
 
 .deleteButton {
@@ -238,7 +238,7 @@ input[type="checkbox"] {
 }
 
 input[type="checkbox"]:checked {
-  accent-color: #FF0B55;
+  accent-color: #096B68;
 }
 
 .customhr {
@@ -279,7 +279,7 @@ input[type="checkbox"]:checked {
   background-color: rgb(249, 255, 255);
   padding: 2px 5px;
   border-radius: 20px;
-  border: 1px solid rgb(1, 64, 62);
+  border: 1px solid rgb(64, 48, 1);
   color: rgb(0, 18, 17);
 }
 
@@ -288,7 +288,7 @@ input[type="checkbox"]:checked {
   font-size: 11px;
   font-weight: 600;
   border-radius: 5px;
-  background-color: #f7eff1;
+  background-color: #E7F2E4;
   color: #1f1e1e;
   border: none;
 }
@@ -300,7 +300,7 @@ select {
 
 /* title bar */
 .titlebar {
-  background-color: #f7eff1;
+  background-color: #E7F2E4;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -320,8 +320,8 @@ select {
 }
 
 .logo {
-  width: 90px;
-  height: 30px;
+  width: 65px;
+  height: 25px;
 }
 
 .titlebarIcon {
