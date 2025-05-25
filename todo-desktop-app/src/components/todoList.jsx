@@ -3,6 +3,7 @@ import { invoke } from "@tauri-apps/api/core";
 import "../App.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faTrash } from "@fortawesome/free-solid-svg-icons";
+import nodata from "../assets/no-data.png";
 
 function TodoList() {
   const [title, setTitle] = useState("");
@@ -93,7 +94,13 @@ function TodoList() {
         <button className="addButton" onClick={() => addTodo()}>Add new</button>
       </div>
       <div className="taskList">
-        {todoList.map((todo) => (
+        {todoList.length === 0 ? (
+          <div className="noDataSection">
+            <img src={nodata} className="noDataImage" />
+            <p className="noDataText" >Data not found.</p>
+          </div>
+        ) : (
+          todoList.map((todo) => (
           <div key={todo.id}>
             <div className="taskItem">
               <div>
@@ -112,7 +119,8 @@ function TodoList() {
             </div>
             <hr className="customhr" />
           </div>
-        ))}
+        ))
+        )}
       </div>
     </main>
   );

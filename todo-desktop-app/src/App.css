@@ -224,7 +224,7 @@ button {
 
 .tasktext.completed {
   text-decoration: line-through;
-  color: #c2cabf
+  color: #bfd4d3
 }
 
 .deleteButton {
@@ -288,7 +288,7 @@ input[type="checkbox"]:checked {
   font-size: 11px;
   font-weight: 600;
   border-radius: 5px;
-  background-color: #E7F2E4;
+  background-color: #e8f8f8;
   color: #1f1e1e;
   border: none;
 }
@@ -300,7 +300,7 @@ select {
 
 /* title bar */
 .titlebar {
-  background-color: #E7F2E4;
+  background-color: #e8f8f8;
   color: white;
   display: flex;
   justify-content: space-between;
@@ -328,6 +328,24 @@ select {
   width: 10px;
   height: 10px;
   color: rgb(70, 68, 68);
+}
+
+/* no data found */
+.noDataSection {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.noDataImage {
+  width: 50%;
+  height: 50%;
+}
+
+.noDataText {
+  font-size: 13px;
+  font-weight: 700px;
 }
 
 
